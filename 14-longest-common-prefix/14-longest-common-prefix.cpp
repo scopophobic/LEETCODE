@@ -1,24 +1,30 @@
 class Solution {
 public:
-    string commonPrefix(string left, string right){
-        int _min = min(left.size(), right.size());
-        for(int i = 0; i < _min; i++){
-            if(left[i] != right[i]){
-                //i is the length of the resulting substring
-                return left.substr(0, i);
-            }
+    bool isCommonPrefix(vector<string>& strs, int len){
+        string str1 = strs[0].substr(0, len);
+        //check str1 is the prefix of all strs[1] to strs[n-1]
+        for(int i = 1; i < strs.size(); i++){
+            //str1.rfind(str2, 0) == 0: str1.startswith(str2)
+            if(strs[i].rfind(str1, 0) != 0) return false;
         }
-        return left.substr(0, _min);
-    }
-    string longestCommonPrefix(vector<string>& strs, int l, int r){
-        if(l == r) return strs[l];
-        int mid = (l+r)/2;
-        string lcpL = longestCommonPrefix(strs, l, mid);
-        string lcpR = longestCommonPrefix(strs, mid+1, r);
-        return commonPrefix(lcpL, lcpR);
+        return true;
     }
     string longestCommonPrefix(vector<string>& strs) {
         if(strs.size() == 0) return "";
-        return longestCommonPrefix(strs, 0, strs.size()-1);
+        int _min = INT_MAX;
+        for(string str : strs) _min = min(_min, (int)str.size());
+        //use binary search to find 
+        int low = 1, high = _min;
+        while(low <= high){
+            int middle = (low+high)/2;
+            if(isCommonPrefix(strs, middle)){
+                low = middle + 1;
+            }else{
+                high = middle - 1;
+            }
+        }
+        //same result:
+        // return strs[0].substr(0, (low+high)/2);
+        return strs[0].substr(0, high);
     }
 };
