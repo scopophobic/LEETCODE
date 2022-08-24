@@ -1,10 +1,8 @@
 class Solution {
 public:
     bool isPowerOfThree(int n) {
-        if(n==1) return true;
-        else if(n==0) return false;
-        else if(n%3!=0) return false;
-        return isPowerOfThree(n/3);
+        int max_power_of_3 = pow(3, int(log(INT_MAX)/log(3)));
         
+        return n > 0 && max_power_of_3 % n == 0;
     }
 };
