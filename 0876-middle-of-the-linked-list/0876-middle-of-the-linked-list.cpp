@@ -20,9 +20,7 @@ public:
         ListNode *h1=head;
         ListNode *h2=head;
         
-        if(head== NULL || head->next== NULL){
-            return head;
-        }
+       
         
         while(h2!=NULL && h2->next!=NULL){
             h2=h2->next->next;
