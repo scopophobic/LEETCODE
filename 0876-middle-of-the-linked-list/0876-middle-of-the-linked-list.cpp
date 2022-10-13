@@ -13,23 +13,24 @@
 
 class Solution {
 public:
-    
+
         
         
     ListNode* middleNode(ListNode* head) {
-        ListNode* temp=head;
-        int count=0;
-        while(temp!= NULL){
-            count++;
-            temp = temp ->next;
+        ListNode *h1=head;
+        ListNode *h2=head;
+        
+        if(head== NULL || head->next== NULL){
+            return head;
         }
         
-        int mid=count/2;
-        
-        for(int i=0;i<mid;i++){
-            head = head -> next;
+        while(h2!=NULL && h2->next!=NULL){
+            h2=h2->next->next;
+            h1=h1->next;
+           
         }
-        return head;
+        
+        return h1;
         
         
     }
