@@ -1,15 +1,5 @@
 class Solution {
 public:
-    string remove (string s){
-        for(int i=0;i<s.size();i++){
-            char c= s[i];
-            if (!isalnum(c)) {
-                s.erase(i, 1);
-                i--;
-            }
-        }
-        return s;
-    }
     bool isPalindrome(string s) {
         for(int i=0;i<s.size();i++){
             char c= s[i];
@@ -18,7 +8,6 @@ public:
                 i--;
             }
         }
-        s=remove(s);
         transform(s.begin(), s.end(), s.begin(), ::tolower);
         cout<<s<<endl;
         int n=s.size();
