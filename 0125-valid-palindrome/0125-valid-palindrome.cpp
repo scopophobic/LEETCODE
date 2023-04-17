@@ -1,20 +1,13 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        for(int i=0;i<s.size();i++){
-            char c= s[i];
-            if (!isalnum(c)) {
-                s.erase(i, 1);
-                i--;
-            }
-        }
         transform(s.begin(), s.end(), s.begin(), ::tolower);
-        cout<<s<<endl;
         int n=s.size();
         int i=0, j = n-1;
-        while(i<=j){
-            if(s[i]!=s[j] ) return false;
-            i++,j--;
+        while(i<j){
+            while(i < j && !isalnum(s[i])) i++;
+            while(i < j && !isalnum(s[j])) j--;
+            if(s[i++]!=s[j--]) return false;
         }
         return true;
     }
