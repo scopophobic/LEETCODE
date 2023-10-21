@@ -1,23 +1,23 @@
 class Solution {
 public:
-    void comsum(vector<int>& can, int t,int id,vector<int>&temp,int sum,vector<vector<int>>&ans){
+    void comsum(vector<int>& can, int t,int id,vector<int>temp,int sum,vector<vector<int>>&ans){
         if(sum==t){
             ans.push_back(temp);
             return;
         }
-        
-        else if(sum>t){
+        if (sum > t || id == can.size()) {
             return;
         }
-        for(int i=id;i<can.size();i++){
-            if(i != id && can[i]==can[i-1])               
-                continue;
-            sum+=can[i];
-            temp.push_back(can[i]);
-            comsum(can,t,i+1,temp,sum,ans);
-            sum-=can[i];
-            temp.pop_back();
-        }
+
+            
+        
+        temp.push_back(can[id]);
+        comsum(can,t,id+1,temp,sum+can[id],ans);
+        temp.pop_back();
+        while (id + 1 < can.size() && can[id] == can[id + 1]) id++;
+            
+        comsum(can,t,id+1,temp,sum,ans);
+
         
     }
     
