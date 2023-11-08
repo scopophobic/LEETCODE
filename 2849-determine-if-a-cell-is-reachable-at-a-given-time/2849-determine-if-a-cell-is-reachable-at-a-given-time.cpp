@@ -6,11 +6,10 @@ public:
         // cout<<s<<" "<<f;
         if(s<0)s*=-1;
         if(f<0)f*=-1;
-        int temp = max(f,s);
-        
+        if(s>f) f=s;
         // cout<<temp;
-        if(temp==0 and t==1) return false;
-        if(temp>t) return false;
+        if(f==0 and t==1) return false;
+        if(f>t) return false;
         else return true;
     }
 };
