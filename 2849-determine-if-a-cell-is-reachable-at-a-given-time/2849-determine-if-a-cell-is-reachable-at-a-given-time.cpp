@@ -1,10 +1,12 @@
 class Solution {
 public:
     bool isReachableAtTime(int sx, int sy, int fx, int fy, int t) {
-        // int s=abs(sx-fx);
-        // int f=abs(sy-fy);
+        int s=sx-fx;
+        int f=sy-fy;
         // cout<<s<<" "<<f;
-        int temp = max(abs(sy-fy),abs(sx-fx));
+        if(s<0)s*=-1;
+        if(f<0)f*=-1;
+        int temp = max(f,s);
         
         // cout<<temp;
         if(temp==0 and t==1) return false;
