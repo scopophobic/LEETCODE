@@ -17,21 +17,25 @@ public:
         
         // cout<<s;
         set<int>a;
-        int l=0;
+        int l=1;
         a.insert(s);
         vector<int>ans;
-        while(l<2){
+        while(l<=2){
+            // cout<<s<<" ";
+            ans.push_back(s);
+            cout<<s<<" ";
             // for(int i=0;i<mp[s].size();i++){
             //     if (a.find(mp[s][i]) == a.end()){
             //         a.insert(mp[s][i]);
-            //         cout<<mp[s][i]<<" ";
+            //         // cout<<mp[s][i]<<" ";
             //         s=mp[s][i];
-            //         continue;
+            //         cout<<s;
             //     }
             // }
             
-            cout<<s<<" ";
-            ans.push_back(s);
+            // ans.push_back(s);
+            
+            
             if (a.find(mp[s][0]) == a.end()) {
                 a.insert(mp[s][0]);
                 s=mp[s][0];
