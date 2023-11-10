@@ -12,8 +12,8 @@ public:
         for(auto it : mp){
             if(it.second.size()==1){
                 s=it.first;
+                break; 
             }
-            c++;
         }
         
         // cout<<s;
@@ -22,7 +22,7 @@ public:
         vector<int>ans;
         int left = -1000000;
         int i=0,l=0;
-        while(c--){
+        while(l<2){
             // cout<<s<<" ";
             
             // cout<<s<<" ";
@@ -52,10 +52,6 @@ public:
             ans.push_back(s);
             left=s;
             s=newval;
-            
-
-
-
             
            
         }
