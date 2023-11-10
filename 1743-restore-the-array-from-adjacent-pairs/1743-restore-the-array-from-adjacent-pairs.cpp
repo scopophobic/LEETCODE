@@ -7,20 +7,21 @@ public:
             mp[adjacentPairs[i][0]].push_back(adjacentPairs[i][1]);
             mp[adjacentPairs[i][1]].push_back(adjacentPairs[i][0]);
         }
-        int s;
+        int s,c=0;
+        
         for(auto it : mp){
             if(it.second.size()==1){
                 s=it.first;
-                break;
             }
+            c++;
         }
         
         // cout<<s;
         set<int>a;
-        int l=1;
+        int l=0;
         a.insert(s);
         vector<int>ans;
-        while(l<=2){
+        while(c--){
             // cout<<s<<" ";
             ans.push_back(s);
             cout<<s<<" ";
