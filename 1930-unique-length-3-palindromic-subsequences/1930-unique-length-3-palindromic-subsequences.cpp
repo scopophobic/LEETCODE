@@ -26,7 +26,7 @@ public:
             // int a=it.second.first,b=it.second.second;
             set<char>se;
             if(a<b){
-            for(int i=a+1;i<=b-1;i++) se.insert(s[i]);
+            for(int i=a+1;i<b;i++) se.insert(s[i]);
             ans+=se.size();
             }
         }
