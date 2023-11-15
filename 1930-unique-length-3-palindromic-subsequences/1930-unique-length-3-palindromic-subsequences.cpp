@@ -16,7 +16,7 @@ public:
             if(it.second.first==-1) continue;
  
             int a=it.second.first,b=it.second.second;
-            set<char>se;
+            unordered_set<char>se;
             for(int i=a+1;i<=b-1;i++){
 
 
