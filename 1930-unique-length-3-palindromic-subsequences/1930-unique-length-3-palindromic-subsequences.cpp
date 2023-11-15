@@ -16,16 +16,23 @@ public:
             if(it.second.first==-1) continue;
  
             int a=it.second.first,b=it.second.second;
-            unordered_set<char>se;
-            for(int i=a+1;i<=b-1;i++){
+//             unordered_set<char>se;
+//             for(int i=a+1;i<=b-1;i++){
+//                     se.insert(s[i]);
 
-
-                    se.insert(s[i]);
-
+//                 }
+            vector<bool> v(128, false);
+            int t = 0;
+            for (int i = a + 1; i < b; i++) {
+                if (!v[s[i]]) {
+                    v[s[i]] = true;
+                    t++;
+                    if (t == 26) break;
                 }
+            }
                 
             
-        ans+=se.size();
+        ans+=t;
         }
         
         return ans;
