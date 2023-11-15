@@ -14,19 +14,12 @@ public:
         int ans=0;
         for(auto it: mp){
             if(it.second.first==-1) continue;
-            cout<<it.first<<" : ";
-            cout<<it.second.first<<" "<<it.second.second<<endl;
+ 
             int a=it.second.first,b=it.second.second;
             set<char>se;
-            for(int i=a+1;i<=b-1;i++){
-                auto pos = se.find(s[i]);
-                if(pos == se.end()){
-                    se.insert(s[i]);
-                    ans++;
-                }
-            }
+            for(int i=a+1;i<=b-1;i++) se.insert(s[i]);
+            ans+=se.size();
         }
-        
         return ans;
     }
 };
