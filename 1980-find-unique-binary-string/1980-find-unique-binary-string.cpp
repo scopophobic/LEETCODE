@@ -15,13 +15,13 @@ public:
     string intToBinary(int n,int no) {
         if (n == 0) return "0";
 
-        const int numBits = no; // For example, let's assume 5 bits for illustration
-        string s(numBits, '0'); // Initialize the string with '0's
+        const int numBits = no; 
+        string s(numBits, '0'); 
 
-        int i = numBits - 1; // Start from the end of the string
+        int i = numBits - 1; 
 
         while (n > 0) {
-            s[i--] = (n % 2) + '0'; // Convert remainder to character
+            s[i--] = (n % 2) + '0';
             n /= 2;
         }
 
