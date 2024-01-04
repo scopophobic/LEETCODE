@@ -5,9 +5,7 @@ public:
         
         for(auto it : nums) mp[it]++;
         
-        for(auto it : mp){
-            cout<<it.first<<" "<<it.second<<endl;
-        }
+    
         int ans=0;
         for(auto it : mp){
             int temp=it.second;
