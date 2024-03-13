@@ -3,7 +3,7 @@ public:
     
     
     int climbStairs(int n) {
-        vector<int>dp(1000100);
+        vector<int>dp(50);
 
         
         for(int i=0;i<=n;i++){
