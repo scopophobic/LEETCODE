@@ -2,7 +2,6 @@ class Solution {
 public:
     int findMaxK(vector<int>& nums) {
         vector<int>neg,pos;
-        
         for(auto it : nums){
             if(it > 0 ) pos.push_back(it);
             else neg.push_back(it*-1);
@@ -10,7 +9,7 @@ public:
         
         sort(neg.begin(),neg.end());
         sort(pos.begin(),pos.end());
-        // reverse(neg.begin(),neg.end());
+
         reverse(pos.begin(),pos.end());
         
         
@@ -20,10 +19,6 @@ public:
                 return it;
             }
         }
-        
-        
-        
-        
         return -1;
         
 
