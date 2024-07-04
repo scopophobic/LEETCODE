@@ -6,20 +6,20 @@ public:
         ListNode* ans = new ListNode(0);
         ListNode* res = ans;
         
+        // vector<int>ans;
         int sum = 0;
-        while (temp != nullptr) {
+        while(temp!=NULL){
             if (temp->val == 0) {
-                
-                    ans->next = new ListNode(sum);
-                    ans = ans->next;
-                    sum = 0;
-
-            } else {
-                sum += temp->val;
+                ans->next = new ListNode(sum);
+                ans = ans->next;
+                sum = 0;
             }
-            temp = temp->next;
+            sum += temp->val;
+            // cout<<sum<<" ";
+            temp = temp ->next;
+            
         }
         
-        return res->next; 
+        return res->next;
     }
 };
