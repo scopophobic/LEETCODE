@@ -9,11 +9,11 @@ public:
         int sum = 0;
         while (temp != nullptr) {
             if (temp->val == 0) {
-                if (sum != 0) {
+                
                     ans->next = new ListNode(sum);
                     ans = ans->next;
                     sum = 0;
-                }
+
             } else {
                 sum += temp->val;
             }
