@@ -15,10 +15,11 @@ public:
        if(root== nullptr ) return ;
 
         
-        
-        addVec(root->right,temp);
-        temp.push_back(root->val);
         addVec(root->left,temp);
+        
+        temp.push_back(root->val);
+        addVec(root->right,temp);
+        
    }
     
     int kthSmallest(TreeNode* root, int k) {
@@ -30,6 +31,6 @@ public:
         for(auto it : temp) cout<<it<<" ";
         cout<<"\n";
         
-        return temp[temp.size()-k];
+        return temp[k-1];
     }
 };
