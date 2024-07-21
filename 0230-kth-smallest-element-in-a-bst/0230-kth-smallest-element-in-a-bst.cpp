@@ -11,18 +11,18 @@
  */
 class Solution {
 public:
-   void addVec(TreeNode* root, vector<int>&temp,int &k,int &ans){
+   void addVec(TreeNode* root,int &k,int &ans){
        if(root== nullptr ) return;
       
 
         
-        addVec(root->left,temp,k,ans);
+        addVec(root->left,k,ans);
       
          if (--k == 0) {
             ans = root->val;
             return;  
         }
-        addVec(root->right,temp,k,ans);
+        addVec(root->right,k,ans);
         
        
 
@@ -32,7 +32,7 @@ public:
         vector<int>temp;
         int ans = -1;
         // temp.push_back(root->val);
-        addVec(root,temp,k,ans);
+        addVec(root,k,ans);
         
         
         for(auto it : temp) cout<<it<<" ";
