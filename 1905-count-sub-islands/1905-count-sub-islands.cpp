@@ -3,9 +3,9 @@ public:
     
     
     bool check;
-    void dfs(vector<vector<int>> &grid1 ,vector<vector<int>> &grid2 , int i , int j,int l,int b){
+    void dfs(vector<vector<int>> &grid1 ,vector<vector<int>> &grid2 , int i , int j){
         
-        if (i < 0 || j < 0 || i >= l || j >= b || grid2[i][j] != 1) return;
+        if (i < 0 || j < 0 || i >= grid1.size() || j >= grid1[0].size() || grid2[i][j] != 1) return;
 
 
         
@@ -16,10 +16,10 @@ public:
         
         grid2[i][j] = -1;
         
-        dfs(grid1,grid2,i-1,j,l,b);
-        dfs(grid1,grid2,i,j-1,l,b);
-        dfs(grid1,grid2,i+1,j,l,b);
-        dfs(grid1,grid2,i,j+1,l,b);
+        dfs(grid1,grid2,i-1,j);
+        dfs(grid1,grid2,i,j-1);
+        dfs(grid1,grid2,i+1,j);
+        dfs(grid1,grid2,i,j+1);
         
         
     }
@@ -37,7 +37,7 @@ public:
             for(int j=0;j<b;j++){
                 if(grid2[i][j]==1){
                     check = true;
-                    dfs(grid1,grid2,i,j,l,b);
+                    dfs(grid1,grid2,i,j);
 
                     
                     if(check) ans++;
