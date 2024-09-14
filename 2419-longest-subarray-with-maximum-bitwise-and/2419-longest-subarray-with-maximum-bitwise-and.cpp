@@ -5,20 +5,19 @@ public:
         vector<int>temp = nums;
         sort(temp.begin(),temp.end());
         int m = temp[n-1];
-        int res=0;
-        int ans=0;
+        int res=1;
+        int ans=1;
         int flag = 0;
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n-1;i++){
             if(nums[i]==m){
-                if(flag) res++;
-                if(!flag){
-                    flag = 1;
-                    res++;
-                }
+                if(nums[i]==nums[i+1])res++;
             }
-            else {flag = 0;res = 0;}
+            else{
+                res=1;
+                continue;
+            }
+            ans = max(res,ans);
             
-            ans = max(ans,res);
             
         }
         
