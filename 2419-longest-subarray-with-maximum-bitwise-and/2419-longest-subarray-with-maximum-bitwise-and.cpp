@@ -7,18 +7,19 @@ public:
         int m = temp[n-1];
         int res=0;
         int ans=0;
+        int flag = 0;
         for(int i=0;i<n;i++){
-            if(nums[i] == m){
-                res++;
-                int k = i+1;
-                while(k<n and nums[k]==m){
+            if(nums[i]==m){
+                if(flag) res++;
+                if(!flag){
+                    flag = 1;
                     res++;
-                    k++;
                 }
-                ans = max(ans,res);
-                res = 0;
-                i = k+1;
             }
+            else {flag = 0;res = 0;}
+            
+            ans = max(ans,res);
+            
         }
         
         return ans;
