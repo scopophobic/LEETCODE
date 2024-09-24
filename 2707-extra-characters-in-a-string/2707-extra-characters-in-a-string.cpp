@@ -4,7 +4,6 @@ class Solution {
 
 public:
     int dfs (int i, int n,string s,set<string>words){
-        if(i==n) return 0;
         if(dp[i]!=-1) return dp[i];
         
         int res = 1 + dfs(i+1,n,s,words);
@@ -22,6 +21,7 @@ public:
     int minExtraChar(string s, vector<string>& dictionary) {
         set<string> words(dictionary.begin(), dictionary.end()); 
         fill(dp.begin(), dp.end(), -1);
+        dp[s.size()] = 0;
         return dfs(0,s.size(),s,words);
     }
 };
