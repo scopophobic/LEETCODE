@@ -11,10 +11,7 @@ public:
                 continue;
             }
             else{
-                c++;
-                cout<<c<<" ";
-                char ch = (char)(c+'0');
-                cout<<(char)(c+'0')<<" ";
+                char ch = (char)((c+1)+'0');
                 ans += ch;
                 ans += word[i];
                 c=0;
